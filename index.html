@@ -25,7 +25,7 @@
 }
 
 .imgRegalo{
-    width: 750px;
+    width: 100%;
     height: 450px;
 }
 </style>
@@ -52,7 +52,7 @@ async function buscarRegalo(){
         // Do something after the sleep!
         $('#imagenLupa').hide();
 
-        let regalo= $('#regalo_'+codigo);
+        let regalo= $('#regalo_'+codigo.toUpperCase());
         if(regalo.length==0){
             alert('Ha introducido un código de regalo inexistente !!')
             return false;
