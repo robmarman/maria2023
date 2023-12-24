@@ -1,10 +1,43 @@
 <html>
 
 <head>
-    <title>REGALOS</title>
+    <title>REGALOS NAVIDAD</title>
     <script src="./jquery3_7.js"></script>
+    <style>
+        .centrado{
+            text-align: center;
+        }
+        .principal{
+            margin: 100px;
+            border: 1px solid black;
+        }
+        .introduccionDatos{
+            margin: 50px;
+            padding: 15px;
+            border: 1px solid green;
+        }
+        .regalo{
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid orange;
+            display: none;
+        }
+        
+        .imgRegalo{
+            width: 100%;
+            height: 450px;
+        }
+        </style>
 </head>
 <body>
+
+    <div class="principal centrado">
+        <p class="centrado">ES NAVIDAD!!</p>
+        
+        <input type="button" id="btnCafetera" value="regalo 1"/>
+        <input type="button" id="btnPerfume" value="regalo 2"/>
+        <input type="button" id="btnJoya" value="regalo 3"/>
+    </div>
 
 </body>
 </html>
