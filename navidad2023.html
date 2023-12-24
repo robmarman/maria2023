@@ -27,16 +27,106 @@
             width: 100%;
             height: 450px;
         }
+
+        .boton{
+            margin: 10px;
+            border: 1px solid black;
+            color: white;
+        }
+
+        .azul{
+            background-color: blue;
+        }
+
+        .rojo{
+            background-color: red;
+        }
+
+        .verde{
+            background-color: green;
+        }
         </style>
+        <script>
+           $( document ).ready(function(){
+            function sleep (time) {
+                return new Promise((resolve) => setTimeout(resolve, time*1000));
+            }
+
+            function cafetera(){
+                 $('#regalo_cafetera').show();
+            }
+
+            function finde(){
+                $('#regalo_finde').show();
+            }
+
+            function perfume(){
+                $('#regalo_perfume').show();
+            }
+
+            function joya(){
+                $('#regalo_joya').show();
+            }
+
+            async function buscarRegalo(valor){
+                $('div[id^="regalo_"]').hide();
+
+                $('#imagenLupa').show();
+                sleep(5).then(() => {
+                    // Do something after the sleep!
+                    $('#imagenLupa').hide();
+
+                    if(confirm('¿Esta segura que quiere este regalo?')){
+                    if(valor=='btnCafetera') cafetera();
+                    else if(valor=='btnFinde') finde();
+                    else if(confirm('¿¿De verdad que esta segura que quiere este regalo??')){
+                        if(confirm('Es su ultima opertunidad de cambiar, ¿¿Lo abrimos??')){
+                            if(valor=='btnPerfume') perfume();
+                            else if(valor=='btnJoya') joya();
+                        }
+                    }
+                }
+
+                });
+
+                
+            }
+
+            $("input").click(function() {
+                buscarRegalo(this.id);
+            });
+           });
+
+        </script>
 </head>
 <body>
 
     <div class="principal centrado">
         <p class="centrado">ES NAVIDAD!!</p>
         
-        <input type="button" id="btnCafetera" value="regalo 1"/>
-        <input type="button" id="btnPerfume" value="regalo 2"/>
-        <input type="button" id="btnJoya" value="regalo 3"/>
+        <img id="imagenLupa" src="./96wa.gif" style="display: none;">
+
+        <input type="button" class="boton azul" id="btnCafetera" value="regalo 1" onclick="avisarRegalo()"/>
+        <input type="button" class="boton rojo" id="btnPerfume" value="regalo 2" onclick="avisarRegalo()"/>
+        <input type="button" class="boton rojo" id="btnJoya" value="regalo 3" onclick="avisarRegalo()"/>
+        <input type="button" class="boton verde" id="btnFinde" value="regalo 4" onclick="avisarRegalo()"/>
+    </div>
+
+    <div id="regalo_cafetera" class="regalo">
+        <p class="tituloRegalo">HAGA CLICK PARA VER SU REGALO</p>
+        <a href="https://incapto.com/cafetera-superautomatica-blanca/?attribute_metodo-de-pago=Pago+%C3%BAnico+con+12+meses+de+suscripci%C3%B3n">Click para ver su regalo</a>
+    </div>
+
+    <div id="regalo_finde" class="regalo">
+        <p class="tituloRegalo">HA GANADO UN FINDE ROMANTICO CON SU PAREJA</p>
+    </div>
+
+    <div id="regalo_perfume" class="regalo">
+        <p class="tituloRegalo">HA GANADO UN PERFUME A SU ELECCIÓN</p>
+    </div>
+
+    <div id="regalo_joya" class="regalo">
+        <p class="tituloRegalo">HA GANADO UNA JOYA A SU ELECCIÓN</p>
     </div>
 
 </body>
